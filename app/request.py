@@ -25,17 +25,17 @@ def getNews(category):
   return news_results
 
 
-# def process_results(news_list):
-#   news_results = []
-#   for news_item in news_list:
-#     name = news_item.get('name')
-#     title = news_item.get('title')
-#     image = news_item.get('urlToImage')
-#     description = news_item.get('description')
-#     author = news_item.get('author')
+def process_results(news_list):
+  news_results = []
+  for news_item in news_list:
+    name = news_item.get('name')
+    title = news_item.get('title')
+    image = news_item.get('urlToImage')
+    description = news_item.get('description')
+    author = news_item.get('author')
 
-#     if image:
-#       news_object = News()
+    if image:
+      news_object = News()
 
 
  
