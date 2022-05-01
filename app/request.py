@@ -12,7 +12,6 @@ base_url  = app.config["NEWS_API_BASE_URL"]
 
 def getNews(category):
 
-  # getNews_url  = base_url.format
   getNews_url = base_url.format(category,apiKey)
 
   with urllib.request.urlopen(getNews_url) as url:
