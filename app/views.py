@@ -5,5 +5,7 @@ from app import app
 @app.route('/')
 def index():
 
+  title = "Welcome to News World"
 
-  return render_template('index.html')
+
+  return render_template('index.html', title = title)
