@@ -8,21 +8,21 @@ apiKey = app.config['NEWS_API_KEY']
 base_url  = app.config['NEWS_API_BASE_URL']
 
 
-# def getNews(category):
+def getNews(category):
 
-#   getNews_url  = base_url.format(category,apiKey)
+  getNews_url  = base_url.format(category,apiKey)
 
-#   with urllib.request.urlopen(getNews_url) as url:
-#     get_news_data = url.read()
-#     get_news_response = json.loads(get_news_data)
+  with urllib.request.urlopen(getNews_url) as url:
+    get_news_data = url.read()
+    get_news_response = json.loads(get_news_data)
 
-#     news_results = None
+    news_results = None
 
-#     if get_news_response['results']:
-#       news_results_list = get_news_response['results']
-#       news_results = process_results(news_results_list)
+    if get_news_response['results']:
+      news_results_list = get_news_response['results']
+      news_results = process_results(news_results_list)
 
-#   return news_results
+  return news_results
 
 
 # def process_results(news_list):
