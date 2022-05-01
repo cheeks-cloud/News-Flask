@@ -35,7 +35,10 @@ def process_results(news_list):
     author = news_item.get('author')
 
     if image:
-      news_object = News()
+      news_object = News(name,title,description,author,image)
+      news_results.append(news_object)
+
+  return news_results
 
 
  
