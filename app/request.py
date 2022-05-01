@@ -2,15 +2,18 @@ from app import app
 import urllib.request,json
 from .models import news
 
-News = news.News 
+News = news.News
+apiKey = None
+base_url = None 
 
 apiKey = app.config['NEWS_API_KEY']
-base_url  = app.config['NEWS_API_BASE_URL']
+base_url  = app.config["NEWS_API_BASE_URL"]
 
 
 def getNews(category):
 
-  getNews_url  = base_url.format(category,apiKey)
+  # getNews_url  = base_url.format
+  getNews_url = base_url.format(category,apiKey)
 
   with urllib.request.urlopen(getNews_url) as url:
     get_news_data = url.read()

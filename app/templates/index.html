@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  {% if title %}
-    <title> {{ title }}  </title>
-  {% else %}
-    <title> Welcome to News World </title>
-  {% endif %}
-</head>
-<body>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+{% block content %}
+
+  <h3>Current Sports News</h3>
+  <ul>  
+
+    {{ macro.displayNewsList(sports)}}
+      
+  </ul>
+  <h3>Current Health News</h3>
+  <ul>  
+
+    {{ macro.displayNewsList(health)}}
+      
+  </ul>
+  <h3>Current Entertainment News</h3>
+  <ul>  
+
+    {{ macro.displayNewsList(entertainment)}}
+      
+  </ul>
+  <h3>Current Technology News</h3>
+  <ul>  
+
+    {{ macro.displayNewsList(technology)}}
+      
+  </ul>
   
-</body>
-</html>
+{% endblock %}
