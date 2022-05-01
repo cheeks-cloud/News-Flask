@@ -2,7 +2,7 @@
 
 class Config:
   
-  NEWS_API_BASE_URL = 'https://newsapi.org/v2/everything/{}?api_Key={}'
+  NEWS_API_BASE_URL = 'https://newsapi.org/v2/top-headlines?{}&apiKey={}'
 
 class ProdConfig(Config):
    
@@ -12,4 +12,5 @@ class ProdConfig(Config):
 class DevConfig(Config):
    
 
-    DEBUG = True
+    DEBUG =True
+    
