@@ -1,4 +1,4 @@
-from tkinter import N
+
 import unittest
 
 from models import news

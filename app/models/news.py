@@ -4,6 +4,8 @@ class News:
     self.id = id
     self.name = name
     self.title = title
-    self.image = 'https://techcrunch.com/wp-content/uploads/2019/07/DSCF2578.jpg?w=600'+image
+    self.image = image
     self.description = description
     self.author = author 
+
+    

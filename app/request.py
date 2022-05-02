@@ -20,8 +20,8 @@ def getNews(category):
 
     news_results = None
 
-    if get_news_response['results']:
-      news_results_list = get_news_response['results']
+    if get_news_response['articles']:
+      news_results_list = get_news_response['articles']
       news_results = process_results(news_results_list)
 
   return news_results
@@ -41,11 +41,11 @@ def getNewsDetails(id):
       id = news_details_response.get('id')
       name = news_details_response.get('name')
       title = news_details_response.get('title')
-      # image =news_details_response.get('urlToImage')
+      image =news_details_response.get('urlToImage')
       description = news_details_response.get('description')
       author = news_details_response.get('author')
 
-      news_object = News(id,name,title,description,author)
+      news_object = News(id,name,title,description,author,image)
 
     return news_object
 
@@ -53,6 +53,7 @@ def getNewsDetails(id):
 def process_results(news_list):
   news_results = []
   for news_item in news_list:
+    id = news_item.get('id')
     name = news_item.get('name')
     title = news_item.get('title')
     image = news_item.get('urlToImage')
@@ -60,7 +61,7 @@ def process_results(news_list):
     author = news_item.get('author')
 
     if image:
-      news_object = News(name,title,description,author,image)
+      news_object = News(id,name,title,image,description,author)
       news_results.append(news_object)
 
   return news_results

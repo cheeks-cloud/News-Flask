@@ -6,14 +6,16 @@
   {{super() }}
   <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 
+{% endblock %}
+
 {% block content %}
 
   <h3>Current Sports News</h3>
-  <ul>  
+  <ol>  
 
     {{ macro.displayNewsList(sports)}}
       
-  </ul>
+  </ol>
   <h3>Current Health News</h3>
   <ul>  
 
