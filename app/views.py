@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import getNews
+from .request import getNews,getNewsDetails
 
 
 @app.route('/')
@@ -17,5 +17,14 @@ def index():
   return render_template('index.html', title = title,sports = current_sports,
   health = current_health, entertainment = current_entertainment,
   technology = current_technology)
+
+
+
+@app.route('/news/<int:id>')
+def news(id):
+  news = getNewsDetails(id)
+  title = f'{news.title}'
+
+  return render_template('news.html', title=title,news=news)
 
   

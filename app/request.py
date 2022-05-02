@@ -27,6 +27,29 @@ def getNews(category):
   return news_results
 
 
+
+
+def getNewsDetails(id):
+  get_news_details_url = base_url.format(id,apiKey)
+
+  with urllib.request.urlopen(get_news_details_url)as url:
+    news_details_data = url.read()
+    news_details_response = json.loads(news_details_data)
+
+    news_object = None
+    if news_details_response:
+      id = news_details_response.get('id')
+      name = news_details_response.get('name')
+      title = news_details_response.get('title')
+      # image =news_details_response.get('urlToImage')
+      description = news_details_response.get('description')
+      author = news_details_response.get('author')
+
+      news_object = News(id,name,title,description,author)
+
+    return news_object
+
+
 def process_results(news_list):
   news_results = []
   for news_item in news_list:
