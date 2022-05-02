@@ -5,16 +5,19 @@
   <div class="container">
 
       <div class="row">
-          <div class=" imagePath"
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 imagePath"
            style="background: url({{news.image}}) no-repeat center center">
           </div>
 
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
               <h3>{{ news.name }}</h3>
 
-              <p class="description"> {{ news.title}}</p>
-              <p class="author"> <b> {{news.description  }}</b></p>
-              <p><i> {{news.author}} </i> </p>
+              <p><b> {{ news.title}}</b></p>
+              <p> {{news.description  }}</p>
+              <p><i> {{news.author}} </i> </p>}
+              <p>
+                    {{ news.date}}
+              </p>
 
 
           </div>

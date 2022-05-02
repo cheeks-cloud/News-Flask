@@ -37,6 +37,7 @@ def getNewsDetails(id):
     news_details_response = json.loads(news_details_data)
 
     news_object = None
+    
     if news_details_response:
       id = news_details_response.get('id')
       name = news_details_response.get('name')
@@ -44,10 +45,11 @@ def getNewsDetails(id):
       image =news_details_response.get('urlToImage')
       description = news_details_response.get('description')
       author = news_details_response.get('author')
+      date = news_details_response.get('publishedAt')
 
-      news_object = News(id,name,title,description,author,image)
-
-    return news_object
+      news_object = News(id,name,title,description,author,image,date)
+      
+  return news_object
 
 
 def process_results(news_list):
@@ -59,12 +61,17 @@ def process_results(news_list):
     image = news_item.get('urlToImage')
     description = news_item.get('description')
     author = news_item.get('author')
+    date = news_item.get('publishedAt')
 
     if image:
-      news_object = News(id,name,title,image,description,author)
+      news_object = News(id,name,title,image,description,author,date)
       news_results.append(news_object)
 
   return news_results
+
+
+
+
 
 
  
