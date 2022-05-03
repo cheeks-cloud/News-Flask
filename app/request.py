@@ -54,9 +54,10 @@ def process_results(news_list):
     description = news_item.get('description')
     author = news_item.get('author')
     date = news_item.get('publishedAt')
+    news = news_item.get('url')
 
     if image:
-      news_object = News(id,name,title,image,description,author,date)
+      news_object = News(id,name,title,image,description,author,date,news)
       news_results.append(news_object)
 
   return news_results
@@ -64,12 +65,13 @@ def process_results(news_list):
 def process_sources(sources):
   allSources = []
   for source in sources:
+    id = source.get('id')
     name = source.get('name')
     description = source.get('description')
-    language = source.get('language')
+    
     country = source.get('country')
 
-    oneSource = NewSource(name, description, language, country)
+    oneSource = NewSource(id,name, description,news, country)
     allSources.append(oneSource)
 
   return allSources
