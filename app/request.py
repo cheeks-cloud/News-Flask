@@ -3,16 +3,18 @@ import urllib.request,json
 from .models import news
 
 News = news.News
+NewSource = news.NewSource
 apiKey = None
 base_url = None 
 
 apiKey = app.config['NEWS_API_KEY']
 base_url  = app.config["NEWS_API_BASE_URL"]
+bases_url = app.config["NEWS_SOURCES_BASE_URL"]
 
 
-def getNews(category):
+def getNews(sources):
 
-  getNews_url = base_url.format(category,apiKey)
+  getNews_url = base_url.format(sources,apiKey)
 
   with urllib.request.urlopen(getNews_url) as url:
     get_news_data = url.read()
@@ -26,30 +28,20 @@ def getNews(category):
 
   return news_results
 
+def getNewsSources():
+  get_news_sources_url = bases_url.format(apiKey)
+     
+  with urllib.request.urlopen(get_news_sources_url) as url:
+    news_sources_data = url.read()
+    news_sources_response = json.loads(news_sources_data)
 
-
-
-def getNewsDetails(id):
-  get_news_details_url = base_url.format(id,apiKey)
-
-  with urllib.request.urlopen(get_news_details_url)as url:
-    news_details_data = url.read()
-    news_details_response = json.loads(news_details_data)
-
-    news_object = None
+    sources_object = None
     
-    if news_details_response:
-      id = news_details_response.get('id')
-      name = news_details_response.get('name')
-      title = news_details_response.get('title')
-      image =news_details_response.get('urlToImage')
-      description = news_details_response.get('description')
-      author = news_details_response.get('author')
-      date = news_details_response.get('publishedAt')
-
-      news_object = News(id,name,title,description,author,image,date)
-      
-  return news_object
+    if news_sources_response['sources']:
+      news_sources_list = news_sources_response['sources']
+      sources_object = process_sources(news_sources_list)
+ 
+  return sources_object
 
 
 def process_results(news_list):
@@ -68,6 +60,20 @@ def process_results(news_list):
       news_results.append(news_object)
 
   return news_results
+
+def process_sources(sources):
+  allSources = []
+  for source in sources:
+    name = source.get('name')
+    description = source.get('description')
+    language = source.get('language')
+    country = source.get('country')
+
+    oneSource = NewSource(name, description, language, country)
+    allSources.append(oneSource)
+
+  return allSources
+
 
 
 

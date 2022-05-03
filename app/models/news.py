@@ -9,4 +9,11 @@ class News:
     self.author = author 
     self.date = date
 
-    
+class NewSource:
+
+  def __init__(self,name,description,language,country):
+
+    self.name=name 
+    self.description=description 
+    self.language=language 
+    self.country=country

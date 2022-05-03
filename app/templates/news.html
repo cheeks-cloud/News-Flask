@@ -1,27 +1,23 @@
 
 {% extends 'base.html'%}
+{% import 'macros.html'  as macro %}
+
+{% block title %} 
+  {{title}} 
+  
+{% endblock %}
 
 {% block content %}
-  <div class="container">
 
-      <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 imagePath"
-           style="background: url({{news.image}}) no-repeat center center">
-          </div>
+  <h3 class="text-center">Current News</h3>
+  <ul>  
 
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 news-details">
-              <h3>{{ news.name }}</h3>
-
-              <p><b> {{ news.title}}</b></p>
-              <p> {{news.description  }}</p>
-              <p><i> {{news.author}} </i> </p>}
-              <p>
-                    {{ news.date}}
-              </p>
-
-
-          </div>
-      </div>
-
-  </div>
+    {{ macro.displayNewsList(news_list)}}
+      
+  </ul>
+  
 {% endblock %}
+
+
+ 
+

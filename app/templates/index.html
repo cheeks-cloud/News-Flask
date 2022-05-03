@@ -8,31 +8,14 @@
 
 {% endblock %}
 
-{% block content %}
-
-  <h3>Current Sports News</h3>
-  <ol>  
-
-    {{ macro.displayNewsList(sports)}}
-      
-  </ol>
-  <h3>Current Health News</h3>
-  <ul>  
-
-    {{ macro.displayNewsList(health)}}
-      
-  </ul>
-  <h3>Current Entertainment News</h3>
-  <ul>  
-
-    {{ macro.displayNewsList(entertainment)}}
-      
-  </ul>
-  <h3>Current Technology News</h3>
-  <ul>  
-
-    {{ macro.displayNewsList(technology)}}
-      
-  </ul>
-  
+{% block title%} 
+  {{title}} 
 {% endblock %}
+
+{% block content %}
+    <div class="container">  
+        {{macro.displaySources(sources)}}
+    </div>
+
+{% endblock %}
+
