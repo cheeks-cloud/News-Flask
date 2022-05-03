@@ -1,10 +1,10 @@
-from flask import render_template
-from app import app
-from .request import getNews,getNewsSources
+from flask import render_template,request,redirect,url_for
+from . import main
+from ..request import getNews,getNewsSources
 
 
 
-@app.route('/')
+@main.route('/')
 def index():
 
   title = "Welcome to News World"
@@ -14,7 +14,7 @@ def index():
   return render_template('index.html', title = title,sources = allSources)
  
 
-@app.route('/news/<id>')
+@main.route('/news/<id>')
 def news(id):
   title = 'Welcome to News World'
 
