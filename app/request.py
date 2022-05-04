@@ -1,8 +1,6 @@
 import urllib.request,json
-from .models import news
+from .models import News,NewSource
 
-News = news.News
-NewSource = news.NewSource
 apiKey = None
 base_url = None 
 bases_url = None
@@ -72,7 +70,7 @@ def process_sources(sources):
     
     country = source.get('country')
 
-    oneSource = NewSource(id,name, description,news, country)
+    oneSource = NewSource(id,name, description,country)
     allSources.append(oneSource)
 
   return allSources

@@ -45,6 +45,5 @@ class NewsSourcesTest(unittest.TestCase):
     self.assertTrue(isinstance(self.newSources,NewSource))
     
 
-if __name__ == '__main__':
- unittest.main()
+
  
