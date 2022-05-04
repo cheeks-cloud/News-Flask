@@ -6,7 +6,7 @@
           <h3> {{source.name }} about {{ source.description }}</h3>
         <div>
           <p> {{source.language}} </p>
-          <a href="{{url_for('news',id=source.id)}}" class="btn btn-primary" target="_self" role="button">
+          <a href="{{url_for('main.news',id=source.id)}}" class="btn btn-primary" target="_self" role="button">
             See News from source</a>
         </div>
         </div>
